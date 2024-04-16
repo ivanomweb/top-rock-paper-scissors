@@ -1,5 +1,12 @@
 let playerScore = 0;
 let computerScore = 0;
+const btn = document.querySelectorAll("button");
+
+btn.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    console.log(e.target.textContent.toLowerCase());
+  });
+});
 
 function getComputerChoice() {
   let computerSelection = Math.floor(Math.random() * (3 - 1 + 1) + 1);
@@ -19,9 +26,7 @@ function getComputerChoice() {
   return computerSelection;
 }
 
-function getPlayerChoice() {
-  return prompt("Player choice is...").toLowerCase();
-}
+function getPlayerChoice() {}
 
 function rPSRound(playerSelection, computerSelection) {
   console.log(
@@ -60,18 +65,7 @@ function rPSRound(playerSelection, computerSelection) {
   }
 }
 
-function playGame() {
-  rPSRound(getPlayerChoice(), getComputerChoice());
-  showScore();
-  rPSRound(getPlayerChoice(), getComputerChoice());
-  showScore();
-  rPSRound(getPlayerChoice(), getComputerChoice());
-  showScore();
-  rPSRound(getPlayerChoice(), getComputerChoice());
-  showScore();
-  rPSRound(getPlayerChoice(), getComputerChoice());
-  showScore();
-}
+function playGame() {}
 
 function showScore() {
   console.log(`Player score is: ${playerScore}.
