@@ -4,13 +4,15 @@ let roundsCount = 0;
 const btn = document.querySelectorAll("button");
 const choice = document.querySelector("#choice");
 const results = document.querySelector("#results");
-document.body.appendChild(results);
+const playerS = document.querySelector("#player-score");
+const computerS = document.querySelector("#computer-score");
 
 btn.forEach((item) => {
   item.addEventListener("click", (e) => {
     rPSRound(e.target.textContent.toLowerCase(), getComputerChoice());
     roundsCount += 1;
-    console.log(roundsCount);
+    playerS.textContent = "Player score is: " + playerScore;
+    computerS.textContent = "Computer score is: " + computerScore;
     showScore();
     playGame();
   });
@@ -78,6 +80,9 @@ function playGame() {
     } else {
       console.log("It's a tie.");
     }
+    btn.forEach((item) => {
+      item.disabled = true;
+    });
   }
 }
 
