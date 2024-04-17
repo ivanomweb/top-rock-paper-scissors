@@ -2,9 +2,8 @@ let playerScore = 0;
 let computerScore = 0;
 let roundsCount = 0;
 const btn = document.querySelectorAll("button");
-const results1 = document.createElement("p");
-document.body.appendChild(results1);
-const results = document.createElement("div");
+const choice = document.querySelector("#choice");
+const results = document.querySelector("#results");
 document.body.appendChild(results);
 
 btn.forEach((item) => {
@@ -36,7 +35,7 @@ function getComputerChoice() {
 }
 
 function rPSRound(playerSelection, computerSelection) {
-  results1.textContent = `You chose ${playerSelection}, while computer chose ${computerSelection}.`;
+  choice.textContent = `You chose ${playerSelection}, while computer chose ${computerSelection}.`;
   if (playerSelection === "rock") {
     if (computerSelection === "rock") {
       results.textContent = "Rock and rock. That's a tie!";
