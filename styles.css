@@ -9,6 +9,7 @@ body {
   flex-direction: column;
   align-items: center;
   font-family: "Jersey 10", sans-serif;
+  font-size: 25px;
 }
 
 nav {
@@ -23,7 +24,7 @@ nav h1 {
 
   font-weight: 400;
   font-style: normal;
-  font-size: 3em;
+  font-size: 3rem;
   color: white;
   text-shadow: 1px 2px 0 black;
 }
@@ -37,6 +38,12 @@ nav h1 {
   flex-wrap: wrap;
 }
 
+.pics {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 38px;
+}
+
 .buttons {
   display: flex;
   gap: 12px;
@@ -47,18 +54,22 @@ button {
   background-color: white;
   padding: 20px;
   font-family: "Jersey 10", sans-serif;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   box-shadow: 2px 2px 0px 0px black;
   width: 150px;
 }
 
 button:hover {
   box-shadow: none;
-  border: 1px solid #333;
 }
 
 .scores {
   display: flex;
   justify-content: space-between;
   gap: 30px;
+}
+
+img {
+  width: 70px;
+  height: auto;
 }

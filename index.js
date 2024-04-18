@@ -1,11 +1,16 @@
 let playerScore = 0;
 let computerScore = 0;
 let roundsCount = 0;
+const paperSrc = "./resources/paper.png";
+const rockSrc = "./resources/rock.png";
+const scissorsSrc = "./resources/scissors.png";
 const btn = document.querySelectorAll("button");
 const choice = document.querySelector("#choice");
 const results = document.querySelector("#results");
 const playerS = document.querySelector("#player-score");
 const computerS = document.querySelector("#computer-score");
+const playerImg = document.querySelector("#player-image");
+const computerImg = document.querySelector("#computer-image");
 
 btn.forEach((item) => {
   item.addEventListener("click", (e) => {
@@ -19,17 +24,22 @@ btn.forEach((item) => {
 });
 
 function getComputerChoice() {
-  let computerSelection = Math.floor(Math.random() * (3 - 1 + 1) + 1);
+  let computerSelection = Math.floor(Math.random() * 3 + 1);
 
   switch (computerSelection) {
     case 1:
       computerSelection = "rock";
+      computerImg.setAttribute("src", rockSrc);
       break;
     case 2:
       computerSelection = "paper";
+      computerImg.setAttribute("src", paperSrc);
+
       break;
     case 3:
       computerSelection = "scissors";
+      computerImg.setAttribute("src", scissorsSrc);
+
       break;
   }
 
@@ -39,6 +49,7 @@ function getComputerChoice() {
 function rPSRound(playerSelection, computerSelection) {
   choice.textContent = `You chose ${playerSelection}, while computer chose ${computerSelection}.`;
   if (playerSelection === "rock") {
+    playerImg.setAttribute("src", rockSrc);
     if (computerSelection === "rock") {
       results.textContent = "Rock and rock. That's a tie!";
     } else if (computerSelection === "scissors") {
@@ -49,6 +60,8 @@ function rPSRound(playerSelection, computerSelection) {
       computerScore += 1;
     }
   } else if (playerSelection === "paper") {
+    playerImg.setAttribute("src", paperSrc);
+
     if (computerSelection === "paper") {
       results.textContent = "Paper and paper. That's a tie!";
     } else if (computerSelection === "rock") {
@@ -59,6 +72,7 @@ function rPSRound(playerSelection, computerSelection) {
       computerScore += 1;
     }
   } else {
+    playerImg.setAttribute("src", scissorsSrc);
     if (computerSelection === "scissors") {
       results.textContent = "Scissors and scissors. That's a tie!";
     } else if (computerSelection === "paper") {
@@ -72,7 +86,7 @@ function rPSRound(playerSelection, computerSelection) {
 }
 
 function playGame() {
-  if (roundsCount >= 5) {
+  if (playerScore == 5 || computerScore == 5) {
     if (playerScore > computerScore) {
       console.log("Player wins.");
     } else if (playerScore < computerScore) {
